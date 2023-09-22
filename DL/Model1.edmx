@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DTorresExamenPractico2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Disco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="100" />
+          <Property Name="Artista" Type="varchar" MaxLength="100" />
+          <Property Name="GeneroMusical" Type="varchar" MaxLength="50" />
+          <Property Name="Duracion" Type="float" />
+          <Property Name="Anio" Type="date" />
+          <Property Name="Distribuidora" Type="varchar" MaxLength="100" />
+          <Property Name="Ventas" Type="int" />
+          <Property Name="Disponibilidad" Type="bit" />
+        </EntityType>
+        <Function Name="DiscoAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Titulo" Type="varchar" Mode="In" />
+          <Parameter Name="Artista" Type="varchar" Mode="In" />
+          <Parameter Name="GeneroMusical" Type="varchar" Mode="In" />
+          <Parameter Name="Duracion" Type="float" Mode="In" />
+          <Parameter Name="Anio" Type="date" Mode="In" />
+          <Parameter Name="Distribuidora" Type="varchar" Mode="In" />
+          <Parameter Name="Ventas" Type="int" Mode="In" />
+          <Parameter Name="Disponibilidad" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DiscoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DiscoGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="DiscoGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DiscoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Titulo" Type="varchar" Mode="In" />
+          <Parameter Name="Artista" Type="varchar" Mode="In" />
+          <Parameter Name="GeneroMusical" Type="varchar" Mode="In" />
+          <Parameter Name="Duracion" Type="float" Mode="In" />
+          <Parameter Name="Anio" Type="date" Mode="In" />
+          <Parameter Name="Distribuidora" Type="varchar" Mode="In" />
+          <Parameter Name="Ventas" Type="int" Mode="In" />
+          <Parameter Name="Disponibilidad" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="DTorresExamenPractico2ModelStoreContainer">
+          <EntitySet Name="Disco" EntityType="Self.Disco" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DTorresExamenPractico2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Disco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Artista" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GeneroMusical" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Duracion" Type="Double" />
+          <Property Name="Anio" Type="DateTime" Precision="0" />
+          <Property Name="Distribuidora" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ventas" Type="Int32" />
+          <Property Name="Disponibilidad" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="DTorresExamenPractico2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Discoes" EntityType="Self.Disco" />
+          <FunctionImport Name="DiscoAdd">
+            <Parameter Name="Titulo" Mode="In" Type="String" />
+            <Parameter Name="Artista" Mode="In" Type="String" />
+            <Parameter Name="GeneroMusical" Mode="In" Type="String" />
+            <Parameter Name="Duracion" Mode="In" Type="Double" />
+            <Parameter Name="Anio" Mode="In" Type="DateTime" />
+            <Parameter Name="Distribuidora" Mode="In" Type="String" />
+            <Parameter Name="Ventas" Mode="In" Type="Int32" />
+            <Parameter Name="Disponibilidad" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DiscoDelete">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DiscoGetAll" ReturnType="Collection(DTorresExamenPractico2Model.DiscoGetAll_Result)" />
+          <FunctionImport Name="DiscoGetById" ReturnType="Collection(DTorresExamenPractico2Model.DiscoGetById_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DiscoUpdate">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Titulo" Mode="In" Type="String" />
+            <Parameter Name="Artista" Mode="In" Type="String" />
+            <Parameter Name="GeneroMusical" Mode="In" Type="String" />
+            <Parameter Name="Duracion" Mode="In" Type="Double" />
+            <Parameter Name="Anio" Mode="In" Type="DateTime" />
+            <Parameter Name="Distribuidora" Mode="In" Type="String" />
+            <Parameter Name="Ventas" Mode="In" Type="Int32" />
+            <Parameter Name="Disponibilidad" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="DiscoGetAll_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Titulo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Artista" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="GeneroMusical" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="Duracion" Nullable="true" />
+          <Property Type="DateTime" Name="Anio" Nullable="true" />
+          <Property Type="String" Name="Distribuidora" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Ventas" Nullable="true" />
+          <Property Type="Boolean" Name="Disponibilidad" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="DiscoGetById_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Titulo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Artista" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="GeneroMusical" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="Duracion" Nullable="true" />
+          <Property Type="DateTime" Name="Anio" Nullable="true" />
+          <Property Type="String" Name="Distribuidora" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Ventas" Nullable="true" />
+          <Property Type="Boolean" Name="Disponibilidad" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DTorresExamenPractico2ModelStoreContainer" CdmEntityContainer="DTorresExamenPractico2Entities">
+          <EntitySetMapping Name="Discoes">
+            <EntityTypeMapping TypeName="DTorresExamenPractico2Model.Disco">
+              <MappingFragment StoreEntitySet="Disco">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Artista" ColumnName="Artista" />
+                <ScalarProperty Name="GeneroMusical" ColumnName="GeneroMusical" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Anio" ColumnName="Anio" />
+                <ScalarProperty Name="Distribuidora" ColumnName="Distribuidora" />
+                <ScalarProperty Name="Ventas" ColumnName="Ventas" />
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DiscoAdd" FunctionName="DTorresExamenPractico2Model.Store.DiscoAdd" />
+          <FunctionImportMapping FunctionImportName="DiscoDelete" FunctionName="DTorresExamenPractico2Model.Store.DiscoDelete" />
+          <FunctionImportMapping FunctionImportName="DiscoGetAll" FunctionName="DTorresExamenPractico2Model.Store.DiscoGetAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DTorresExamenPractico2Model.DiscoGetAll_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Artista" ColumnName="Artista" />
+                <ScalarProperty Name="GeneroMusical" ColumnName="GeneroMusical" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Anio" ColumnName="Anio" />
+                <ScalarProperty Name="Distribuidora" ColumnName="Distribuidora" />
+                <ScalarProperty Name="Ventas" ColumnName="Ventas" />
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DiscoGetById" FunctionName="DTorresExamenPractico2Model.Store.DiscoGetById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DTorresExamenPractico2Model.DiscoGetById_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Artista" ColumnName="Artista" />
+                <ScalarProperty Name="GeneroMusical" ColumnName="GeneroMusical" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Anio" ColumnName="Anio" />
+                <ScalarProperty Name="Distribuidora" ColumnName="Distribuidora" />
+                <ScalarProperty Name="Ventas" ColumnName="Ventas" />
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DiscoUpdate" FunctionName="DTorresExamenPractico2Model.Store.DiscoUpdate" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

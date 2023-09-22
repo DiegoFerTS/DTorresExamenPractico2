@@ -1,0 +1,116 @@
+﻿@model ML.Disco
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">DISCOS</h2>
+<br />
+<h3 class="text-center">Agregar nuevo disco</h3>
+<hr />
+
+<center>
+    <a class="btn btn-primary" href="@Url.Action("Form", "Disco")">Registrar nuevo disco</a>
+</center>
+
+<br />
+<hr />
+
+@if (Model.Discos.Count > 0)
+{
+
+    <h3 class="text-center">Discos registrados</h3>
+    <hr />
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Titulo
+                </th>
+                <th>
+                    Artista
+                </th>
+                <th>
+                    Genero
+                </th>
+                <th>
+                    Duracion
+                </th>
+                <th>
+                    Año
+                </th>
+                <th>
+                    Distribuidora
+                </th>
+                <th>
+                    Ventas
+                </th>
+                <th>
+                    Disponibilidad
+                </th>
+                <th>
+                    Editar
+                </th>
+                <th>
+                    Borrar
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (ML.Disco disco in Model.Discos)
+            {
+                <tr>
+                    <td>
+                        @disco.Id
+                    </td>
+                    <td>
+                        @disco.Titulo
+                    </td>
+                    <td>
+                        @disco.Artista
+                    </td>
+                    <td>
+                        @disco.GeneroMusical
+                    </td>
+                    <td>
+                        @disco.Duracion min
+                    </td>
+                    <td>
+                        @disco.Anio.Year
+                    </td>
+                    <td>
+                        @disco.Distribuidora
+                    </td>
+                    <td>
+                        @disco.Ventas
+                    </td>
+                    <td>
+                        @if (disco.Disponibilidad)
+                        {
+                            <p>Disponible</p>
+                        }
+                        else
+                        {
+                            <p>No disponible</p>
+                        }
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="@Url.Action("Form", "Disco", new {idDisco = disco.Id})">Editar</a>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger">Borrar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+}
+else
+{
+    <div class="alert alert-danger">No se encontraron datos</div>
+}

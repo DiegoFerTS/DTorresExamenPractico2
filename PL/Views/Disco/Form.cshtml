@@ -1,0 +1,63 @@
+﻿@model ML.Disco
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Formulario</h2>
+<hr />
+
+<div>
+    <div class="row">
+        <div class="col">
+            @Html.LabelFor(Model => Model.Titulo)
+            @Html.TextBoxFor(Model => Model.Titulo, new { @class = "form-control" })
+        </div>
+        <div class="col">
+            @Html.LabelFor(Model => Model.Artista)
+            @Html.TextBoxFor(Model => Model.Artista, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            @Html.LabelFor(Model => Model.GeneroMusical)
+            @Html.TextBoxFor(Model => Model.GeneroMusical, new { @class = "form-control" })
+        </div>
+        <div class="col">
+            @Html.LabelFor(Model => Model.Duracion)
+            @Html.TextBoxFor(Model => Model.Duracion, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            @Html.LabelFor(Model => Model.Anio)
+            @Html.TextBoxFor(Model => Model.Anio, new { @class = "form-control" })
+        </div>
+        <div class="col">
+            @Html.LabelFor(Model => Model.Distribuidora)
+            @Html.TextBoxFor(Model => Model.Distribuidora, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            @Html.LabelFor(Model => Model.Ventas)
+            @Html.TextBoxFor(Model => Model.Ventas, new { @class = "form-control" })
+        </div>
+
+        
+        <div class="col">
+            @Html.LabelFor(Model => Model.Disponibilidad)
+            @Html.TextBoxFor(Model => Model.Disponibilidad, new { @class = "form-control" })
+        </div>
+    </div>
+    <br /> <hr />
+    <center>
+        <button class="btn btn-success">Registrar</button>
+    </center>
+</div>
+
+
+
